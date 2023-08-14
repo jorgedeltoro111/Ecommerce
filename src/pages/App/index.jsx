@@ -1,9 +1,20 @@
-import './App.css'
+import './App.css';
+import Home from '../Home';
+import MyOrder from '../MyOrder';
+import MyOrders from '../MyOrders';
+import NotFound from '../NotFound';
+import SignIn from '../SignIn';
+import Account from '../Account';
 
 function App() {
   return (
     <div className='bg-red-100'>
-      Bienvenido al curso de tailwind con vite, tailwind y react.
+      <Home/>
+      <Account/>
+      <MyOrder/>
+      <MyOrders/>
+      <SignIn/>
+      <NotFound/>
     </div>
   )
 }
