@@ -5,6 +5,7 @@ import MyOrders from '../MyOrders';
 import NotFound from '../NotFound';
 import SignIn from '../SignIn';
 import Account from '../Account';
+import NavBar from '../../Components/NavBar/index';
 import './App.css';
 
 /**Con esta funcion vamos a crear un array de rutas que van a devolver a nuestro componente
@@ -29,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <AppRoutes/>
+      <NavBar/>
     </BrowserRouter>
   )
 }
