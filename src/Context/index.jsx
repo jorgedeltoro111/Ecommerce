@@ -5,8 +5,8 @@ const cart = createContext()
 
 export const cartProvider = ({children}) => {
     return (
-        <createContext>
+        <cart.provider>
             {children}
-        </createContext>
+        </cart.provider>
     )
 }
