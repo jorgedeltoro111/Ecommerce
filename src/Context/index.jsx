@@ -11,7 +11,7 @@ export const CartProvider = ({children}) => {
             value={
                 {
                     count,
-                    setCount
+                    setCount,
                 }
             }
         >
