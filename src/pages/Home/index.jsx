@@ -5,6 +5,8 @@ import ProductDetail from '../../Components/ProductDetail';
 function Home() {
   const [products, setProducts] = useState([]);
   const [productDetail, setProductDetail] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen)
   console.log(productDetail)
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -27,23 +29,22 @@ function Home() {
       <div className='grid grid-cols-4 gap-4 '>
         {
           products?.map((product) => {
-            return <Card key={product.id} product={product} setProductDetail={setProductDetail}/>
+            return <Card key={product.id} product={product} setProductDetail={setProductDetail} setIsOpen={setIsOpen}/>
           })
         }
       </div>
       {
-        productDetail!==null ? 
-            (() => {
-              for(const product of products){
-                if(product.id === productDetail){
-                  return <ProductDetail product={product}/>
-                }else{
-                  console.log('Not Found');
-                }
-              }
-            }) () : console.log('There product is not defined')
+        isOpen ? 
+        (() => {
+          console.log('entre');
+          for(const product of products){
+            if(product.id === productDetail.id){
+                console.log('entre al render')
+                return <ProductDetail product={product} setIsOpen={setIsOpen} />
+            }
+          }
+        }) () : null 
       }
-      
     </Layout>
   )
 }
