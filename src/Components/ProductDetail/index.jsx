@@ -15,9 +15,11 @@ function ProductDetail({product, setIsOpen}) {
           <h4 className='font-light text-sm text-justify'>
             {product.description}
           </h4>
-
         </div>
-
+        <div className='p-2 font-semibold bg-slate-300'>
+          <h4>Category: {product.category}</h4>
+          <h3>Precio: ${product.price}</h3>
+        </div>
     </aside>
   )
 }
