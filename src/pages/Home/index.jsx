@@ -6,8 +6,7 @@ function Home() {
   const [products, setProducts] = useState([]);
   const [productDetail, setProductDetail] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen)
-  console.log(productDetail)
+
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(response => {
@@ -35,8 +34,7 @@ function Home() {
       </div>
       {
         isOpen ? 
-        (() => {
-          console.log('entre');
+        (() => { 
           for(const product of products){
             if(product.id === productDetail.id){
                 console.log('entre al render')
