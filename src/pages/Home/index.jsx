@@ -37,7 +37,6 @@ function Home() {
         (() => { 
           for(const product of products){
             if(product.id === productDetail.id){
-                console.log('entre al render')
                 return <ProductDetail product={product} setIsOpen={setIsOpen} />
             }
           }

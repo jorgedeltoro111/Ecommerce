@@ -4,13 +4,20 @@ import {cartContext} from '../../Context/index';//traer ese contexto ya instanci
 function Card({product, setProductDetail, setIsOpen}) {
   const context = useContext(cartContext);//traerlo asi
   
+  const addProductsToCart = (product) => {
+    //con esta instruccion dejamos lo que tenemos ya en nuestro array y mas aparte agregamos un nuevo elemento.
+    context.setCartProducts([...context.cartProducts, product]);
+    context.setCount(context.count + 1);
+    console.log(context.cartProducts);
+  }
+
   return (
     <div className='p-2 bg-white cursor-pointer w-56 h-60 rounded-lg border-2 mt-3' onClick={() => {setProductDetail(product); setIsOpen(true);}}>
         <figure className='relative mb-2 w-full h-4/5'>
             <span className='absolute bottom-0 mb-2 ml-2 p-1 left-0 bg-white/60 rounded-lg text-black text-sm'>{product.category}</span>
             <img className='h-full' src={product.image} alt={product.title} />
             <div className='border border-black  absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 font-black'
-            onClick={() => context.setCount(context.count + 1) /**Utilizar context. para usar la propiedad*/}
+            onClick={() => addProductsToCart(product)}
             >
                 +
             </div>
